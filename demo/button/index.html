@@ -2,15 +2,20 @@
 <div id="app"></div>
 <script type="module">
 	import { createApp } from 'vue/dist/vue.esm-bundler.js';
-	import SpiritUI, { SFCButton, JSXButton } from '../../dist/spirit-ui.mjs';
+	import SpiritUI, { SButton } from '../../dist/spirit-ui.mjs';
+	import '../../dist/assets/entry.8a04a5a6.css';
 
 	createApp({
 		template: `
-<JSXButton/>
-<SButton/>
-`,
+			<div>
+				<SButton color="blue">蓝色按钮</SButton>
+				<SButton color="green">绿色按钮</SButton>
+				<SButton color="gray">灰色按钮</SButton>
+				<SButton color="yellow">黄色按钮</SButton>
+				<SButton color="red">红色按钮</SButton>
+			</div>
+		`,
 	})
-		.component(SFCButton.name, SFCButton)
-		.component(JSXButton.name, JSXButton)
+		.use(SpiritUI)
 		.mount('#app');
 </script>

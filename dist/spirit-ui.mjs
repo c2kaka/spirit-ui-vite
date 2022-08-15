@@ -1,32 +1,45 @@
-import { openBlock, createElementBlock, defineComponent, createVNode, createTextVNode } from "vue";
-const _sfc_main = {
-  name: "SButton"
-};
-const _export_sfc = (sfc, props) => {
-  const target = sfc.__vccOpts || sfc;
-  for (const [key, val] of props) {
-    target[key] = val;
+import { defineComponent, createVNode } from "vue";
+const __uno = "";
+const props = {
+  color: {
+    type: String,
+    default: "blue"
+  },
+  icon: {
+    type: String
   }
-  return target;
 };
-function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("button", null, "SFC button");
-}
-const SFCButton = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render]]);
-const JSXButton = defineComponent({
-  name: "JSXButton",
-  render() {
-    return createVNode("button", null, [createTextVNode("JSX Button")]);
+const SButton = defineComponent({
+  name: "SButton",
+  props,
+  setup(props2, {
+    slots
+  }) {
+    console.log(props2.icon);
+    return () => createVNode("button", {
+      "class": `
+        py-2 
+        px-4 
+        font-semibold 
+        rounded-lg 
+        shadow-md 
+        text-white 
+        bg-${props2.color}-500 
+        hover:bg-${props2.color}-700 
+        border-none 
+        cursor-pointer 
+        `
+    }, [!!props2.icon ? createVNode("i", {
+      "class": `i-ic-baseline-${props2.icon} p-3`
+    }, null) : null, slots.default ? slots.default() : ""]);
   }
 });
 const entry = {
   install(app) {
-    app.component(SFCButton.name, SFCButton);
-    app.component(JSXButton.name, JSXButton);
+    app.component(SButton.name, SButton);
   }
 };
 export {
-  JSXButton,
-  SFCButton,
+  SButton,
   entry as default
 };

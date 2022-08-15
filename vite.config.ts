@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import Unocss from './config/unocss'
+
 
 const rollupOptions = {
     external: ["vue", "vue-router"],
@@ -17,9 +19,11 @@ export default defineConfig({
         vue(),
         vueJsx({
             // options are passed on to @vue/babel-plugin-jsx
-        })
+        }),
+        Unocss()
     ],
     build: {
+        cssCodeSplit: true,
         rollupOptions,
         minify: false,
         lib: {
