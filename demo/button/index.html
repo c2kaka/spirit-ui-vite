@@ -1,0 +1,16 @@
+<h1>Demo</h1>
+<div id="app"></div>
+<script type="module">
+	import { createApp } from 'vue/dist/vue.esm-bundler.js';
+	import SpiritUI, { SFCButton, JSXButton } from '../../dist/spirit-ui.mjs';
+
+	createApp({
+		template: `
+<JSXButton/>
+<SButton/>
+`,
+	})
+		.component(SFCButton.name, SFCButton)
+		.component(JSXButton.name, JSXButton)
+		.mount('#app');
+</script>
