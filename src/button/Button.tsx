@@ -16,8 +16,7 @@ export default defineComponent({
     name: "SButton",
     props,
     setup(props, { slots }) {
-        console.log(props.icon);
-        return () => <button 
+        return () => <button
         class={`
         py-2 
         px-4 
