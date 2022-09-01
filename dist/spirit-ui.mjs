@@ -15,7 +15,6 @@ const SButton = defineComponent({
   setup(props2, {
     slots
   }) {
-    console.log(props2.icon);
     return () => createVNode("button", {
       "class": `
         py-2 
@@ -43,3 +42,4 @@ export {
   SButton,
   entry as default
 };
+//# sourceMappingURL=spirit-ui.mjs.map
